@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="author">
+      <h1 class="author__heading">Hi, I am Bhargav</h1>
+      <p class="author__body">Web developer</p>
+    </div>
+
+    <img
+      src="/img/bhargav.jpg"
+      alt="men watching outside window"
+      class="window-image"
+      width="981"
+      height="528"
+    />
+
+    <section class="articles">
+      <h2 class="author__heading">Latest Posts</h2>
+
+      <ul class="article-ul">
+        <% data.forEach(post => { %>
+
+        <li>
+          <a href="/post/<%= post._id %>">
+            <span><%= post.title %></span>
+            <span class="article-list__date">
+              <%=post.createdAt.toDateString() %>
+            </span>
+          </a>
+        </li>
+        <% }) %>
+      </ul>
+
+      <% if (nextPage !== null) { %>
+      <a href="/?page=<%= nextPage %>" class="pagination"
+        >&lt; View Older Posts</a
+      >
+
+      <% } %>
+    </section>
+  </body>
+</html>
